@@ -19,14 +19,35 @@
 <body>
     <!-- Background Video -->
     <video loop autoplay muted id="wing">
-        <source src="./assets/videos/wing.mp4" type="video/mp4">
+        <source src="./assets/videos/final0001-3940.mp4" type="video/mp4">
     </video>
+
+    <button id="sound" onclick="toggleSound()"><i class="fas fa-volume-mute"></i></button>
 
     <div class="main-content">
         <button id="start">
-            <span>Let's go Flying!</span>
+            <span>Start Journey</span>
         </button>
     </div>
 </body>
+
+<script>
+    var video = document.querySelector('video');
+    var soundIcon = document.querySelector('i');
+
+    function toggleSound() {
+        if (soundIcon.classList.contains('fa-volume-mute')){
+            video.muted = false
+            soundIcon.classList.remove('fa-volume-mute')
+            soundIcon.classList.add('fa-volume-up')
+        }
+        else {
+            video.muted = true
+            soundIcon.classList.add('fa-volume-mute')
+            soundIcon.classList.remove('fa-volume-up')
+        }
+    }
+
+</script>
 
 </html>
