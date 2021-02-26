@@ -1,11 +1,10 @@
 html {
     font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 150%;
+    font-size: 1.5rem;
     line-height: 1.4;
 }
 
 body {
-    background-color: white !important;
     overflow-x: hidden;
 }
 
@@ -43,8 +42,56 @@ body {
     z-index: -1;
 }
 
+/* Video */
+#background {
+    height: 100vh;
+    left: 0;
+    object-fit: cover;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: -2;
+}
+
+/* Main Text */
+header {
+    margin-top: 15% !important;
+    padding-left: 4%;
+    text-align: center;
+    z-index: 30;
+}
+
+header h1 {
+    color: white;
+    font-family: 'Syncopate', sans-serif;
+    font-size: 2rem;
+    font-weight: lighter;
+    letter-spacing: 3vw;
+    line-height: 1.2;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+header h1 span {
+    display: block;
+    font-size: 4.5rem;
+    font-weight: bolder;
+    letter-spacing: -0.9vw;
+}
+
+/* Start Button */
 .startButton:focus {
     box-shadow: none !important;
+}
+
+/* Animated Arrow */
+.arrow {
+    color: white;
+    text-align: center;
+}
+
+.arrow p {
+    font-size: 0.8rem;
 }
 
 /* Information Sections */
@@ -64,54 +111,62 @@ body {
 }
 
 #search {
-    border-radius: 0 0 0 150px;
 }
-
-#background {
-    height: 100vh;
-    left: 0;
-    object-fit: cover;
-    position: fixed;
-    top: 0;
-    width: 100vw;
-    z-index: -2;
-}
-
-header {
-    margin-top: 15% !important;
-    padding-left: 4%;
-    text-align: center;
-    z-index: 30;
-}
-
-.arrow {
-    color: white;
-    text-align: center;
-}
-
-.arrow p {
-    font-size: 0.8rem;
-}
-
-h1 {
-    color: white;
-    font-family: 'Syncopate', sans-serif;
-    font-size: 3vw;
-    font-weight: lighter;
-    letter-spacing: 3vw;
-    line-height: 1.2;
-    text-align: center;
-    text-transform: uppercase;
-}
-
-h1 span {
-    display: block;
-    font-size: 8vw;
-    letter-spacing: -0.9vw;
-}
-
-
 
 .tutorial-video {
     width: 100%;
+}
+
+/* Footer Section */
+footer {
+    background-color: darkslateblue;
+    color: white;
+    padding: 3%;
+    padding-left: 7%;
+    text-align: justify;
+}
+
+footer p,li{
+    font-size: 1rem !important;
+    font-weight: lighter;
+}
+
+footer ul {
+    padding-left: 0;
+}
+
+footer hr {
+    background-color: white;
+    height: 1px;
+    margin: 0;
+    margin-right: auto;
+    width: 70vw;
+}
+
+footer p.mutedText {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.8rem !important;
+    margin: 0;
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 800px){
+    header h1{
+        font-size: 2rem;
+    }
+
+    header h1 span {
+        font-size: 3.5rem;
+    }
+}
+
+@media screen and (max-width: 600px){
+    header h1{
+        font-size: 1.5rem;
+    }
+
+    header h1 span {
+        margin-top: 20px !important;
+        font-size: 2.2rem;
+    }
 }
