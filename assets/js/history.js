@@ -48,5 +48,4 @@ function displayHistory(){
 }
 
 $('table').DataTable({
-    "searching" : false
 });

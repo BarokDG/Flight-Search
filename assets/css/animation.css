@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:100,300,400,600,700');
+ @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+ /* .animation {
+	 box-shadow: 0 0 10rem 0 #000;
+} */
+ 
+ html, body {
+	 width: 100%;
+	 height: 100%;
+}
+ body {
+	 box-sizing: border-box;
+	 display: flex;
+	 align-items: center;
+	 justify-content: center;
+	 padding-bottom: 3rem;
+	 
+	
+	 /* font-family: 'Josefin Sans', sans-serif;
+	 font-size: 10px;
+	 font-weight: 100; */
+	 
+}
+ a {
+	 text-decoration: none;
+	 color: #ffa500;
+}
+ a:hover {
+	 text-decoration: underline;
+}
+ .animation {
+	 position: relative;
+	 overflow: hidden;
+	 width: 100%;
+	 height: 20rem;
+	 /* max-width: 1rem; */
+	 background-color: #fff;
+	border-radius: 0 0 2rem 2rem; 
+	 animation: 24s linear infinite sky;
+}
+ .animation:after {
+	 position: absolute;
+	 z-index: 0;
+	 top: 0;
+	 left: 0;
+	 content: '';
+	 display: block;
+	 width: 100%;
+	 height: 100%;
+	 /* box-shadow: 0 7rem 30rem -4rem #5aacdc inset; */
+}
+ .animation [class^="animation__"], .animation [class*=" animation__"] {
+	 position: absolute;
+}
+ .animation__plane {
+	 position: absolute;
+	 z-index: 1;
+	 top: calc(40% - (62px/2));
+	 left: calc(50% - (272px/2));
+	 width: 17rem;
+	 height: 6.2rem;
+	 animation: 2s ease-in-out takeOff, 5s ease-in-out infinite alternate flight 2s;
+}
+ .animation__plane--shadow {
+	 bottom: 1rem;
+	 left: calc(54% - (8rem/2));
+	 width: 8rem;
+	 height: 1rem;
+	 border-radius: 50%;
+	 background-color: rgba(0, 0, 0, 0.15);
+	 animation: 2s ease-in-out takeOffShadow, 5s ease-in-out infinite alternate flightShadow 2s;
+}
+ .animation__cloud--front {
+	 z-index: 2;
+	 top: 50%;
+	 left: 20%;
+	 width: 8.5rem;
+	 height: 3rem;
+	 fill: #cee4e7;
+	 animation: 4s linear infinite cloudFront;
+}
+ .animation__cloud--middle {
+	 top: 22%;
+	 left: 75%;
+	 width: 6rem;
+	 height: 3rem;
+	 fill: #cee4e7;
+	 animation: 5s linear infinite cloudMiddle;
+}
+ .animation__cloud--back {
+	 top: 6%;
+	 left: 34%;
+	 fill: #cee4e7;
+	 animation: 8s linear infinite cloudBack;
+}
+ .animation .animation__loader {
+	 position: absolute;
+	 left: 0;
+	 bottom: 3rem;
+	 width: 100%;
+	 height: 4px;
+	 background-color: rgba(0, 0, 0, 0.15);
+}
+ .animation .animation__loader:after {
+	 position: absolute;
+	 display: block;
+	 content: '';
+	 width: 100%;
+	 height: 100%;
+	 background-color: #cee4e7;
+	 overflow: hidden;
+	 animation: 1.5s ease-in-out infinite loader;
+}
+ @keyframes loader {
+	 0% {
+		 left: -100%;
+	}
+	 100% {
+		 left: 100%;
+	}
+}
+ @keyframes takeOff {
+	 0% {
+		 transform: translate(-220%, 110%);
+	}
+	 100% {
+		 transform: translate(0, 0);
+	}
+}
+ @keyframes takeOffShadow {
+	 0% {
+		 transform: translate(-440%, 110%);
+		 opacity: 1;
+	}
+	 100% {
+		 transform: translate(0, 0);
+		 opacity: 0.8;
+	}
+}
+ @keyframes flight {
+	 0% {
+		 transform: translate(0, 0);
+	}
+	 25% {
+		 transform: translate(0, 10%);
+	}
+	 75% {
+		 transform: translate(0, -10%);
+	}
+	 100% {
+		 transform: translate(0, 0);
+	}
+}
+ @keyframes flightShadow {
+	 0% {
+		 transform: scale(0.8);
+		 opacity: 0.8;
+	}
+	 25% {
+		 transform: scale(0.9);
+		 opacity: 1;
+	}
+	 75% {
+		 transform: scale(1.1);
+		 opacity: 0.6;
+	}
+	 100% {
+		 transform: scale(0.8);
+		 opacity: 0.8;
+	}
+}
+ @keyframes cloudFront {
+	 0% {
+		 transform: translate(520%, 0);
+	}
+	 100% {
+		 transform: translate(-600%, 0);
+	}
+}
+ @keyframes cloudMiddle {
+	 0% {
+		 transform: translate(230%, 0);
+	}
+	 100% {
+		 transform: translate(-900%, 0);
+	}
+}
+ @keyframes cloudBack {
+	 0% {
+		 transform: translate(910%, 0);
+	}
+	 100% {
+		 transform: translate(-1000%, 0);
+	}
+}
+ @keyframes sky {
+	 0% {
+		 background-color: #fff;
+	}
+	 20% {
+		 background-color: #fff;
+	}
+	 35% {
+		 background-color: coral;
+	}
+	 50% {
+		 background-color: transparent;
+	}
+	 70% {
+		 background-color: transparent;
+	}
+	 85% {
+		 background-color: coral;
+	}
+	 100% {
+		 background-color: #fff;
+	}
+}
+ 
