@@ -46,3 +46,7 @@ function displayHistory(){
     for(const element of searchHistoryList.reverse())
         historyList.appendChild(element)
 }
+
+$('table').DataTable({
+    "searching" : false
+});
