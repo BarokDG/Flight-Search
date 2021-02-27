@@ -5,7 +5,7 @@ const historyList = document.querySelector('#history')
 
 onload = displayHistory()
 
-btn.addEventListener('click', searchFunction)
+// btn.addEventListener('click', searchFunction)
 function searchFunction(){
     saveSearchRecord(input.value, Date())
 }
