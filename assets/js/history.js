@@ -1,11 +1,11 @@
 const input = document.querySelector('#searchKey')
 const btn = document.querySelector('button')
-const historyList = document.querySelector('.list-group')
+const historyList = document.querySelector('#history')
 
 
 onload = displayHistory()
 
-btn.addEventListener('click', searchFunction)
+// btn.addEventListener('click', searchFunction)
 function searchFunction(){
     saveSearchRecord(input.value, Date())
 }

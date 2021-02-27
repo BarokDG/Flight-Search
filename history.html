@@ -9,14 +9,46 @@
 </head>
 <body>
     <h1>Demo</h1>
-    <div class="form-group m-5">
-        <label for="usr">Search flights</label>
+    <!-- <div class="form-group m-5">
         <input type="text" class="form-control" id="searchKey">
-        <button type="button" class="btn btn-primary">Search</button>
+    </div> -->
+
+
+
+    <!-- Search Form-->
+    <form id="form">
+        <div class="form-row m-5">
+        <label>Search flights</label>
+            
+          <div class="col">
+            <input type="text" name="country" class="form-control" placeholder="Country">
+          </div>
+          <div class="col">
+            <input type="text" name="currency" class="form-control" placeholder="Currency">
+          </div>
+          <div class="col">
+            <input type="text" name="origin" class="form-control" placeholder="Origin">
+          </div>
+          <div class="col">
+            <input type="text" name="destination" class="form-control" placeholder="Destination">
+          </div>
+          <div class="col">
+            <input type="text" name="obd" class="form-control" placeholder="OutboundDate">
+          </div>
+          <button type="button" class="btn btn-primary" id="searchBtn">Search</button>
+
+        </div>
+      </form>
+
+      <!-- Result of fetch -->
+    <h3>Result</h3>  
+    <div class="list-group" id="result">
     </div>
 
+
+    <!-- History -->
     <h3>History</h3>  
-    <div class="list-group">
+    <div class="list-group" id="history">
     </div>
       
     <!-- jQuery library -->
@@ -30,5 +62,8 @@
 
     <!-- History functionality -->
     <script src="./assets/js/history.js"></script>
+    
+   <!-- API Fetcher -->
+    <script src="./assets/js/apifetch.js"></script>
 </body>
 </html>
