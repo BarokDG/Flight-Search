@@ -1,6 +1,6 @@
 const input = document.querySelector('#searchKey')
 const btn = document.querySelector('button')
-const historyList = document.querySelector('.list-group')
+const historyList = document.querySelector('#history')
 
 
 onload = displayHistory()
