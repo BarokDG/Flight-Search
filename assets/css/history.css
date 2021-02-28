@@ -183,9 +183,13 @@ body {
   .avatar-blue {
         background-color: #c8d9f1;
         color: #467fcf;
-      }
-  
-      .avatar-pink {
-        background-color: #fcd3e1;
-        color: #f66d9b;
-      }
+  }
+
+  .avatar-pink {
+    background-color: #fcd3e1;
+    color: #f66d9b;
+  }
+
+#loadDataHistory td{
+    cursor: pointer;
+}

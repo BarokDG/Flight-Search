@@ -67,7 +67,9 @@ function enterIntoForm(e){
     form.origin.value = searchTD.children[2].textContent
     form.destination.value = searchTD.children[3].textContent
     form.obd.value = searchTD.children[4].textContent
-
+    form.scrollIntoView()
+    form.focus()
+    search.focus()
 }
     
 // $('table').DataTable({
