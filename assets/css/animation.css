@@ -32,7 +32,7 @@
 	 position: relative;
 	 overflow: hidden;
 	 width: 100%;
-	 height: 20rem;
+	 height: 40rem;
 	 /* max-width: 1rem; */
 	 background-color: #fff;
 	border-radius: 0 0 2rem 2rem; 
@@ -58,7 +58,7 @@
 	 top: calc(40% - (62px/2));
 	 left: calc(50% - (272px/2));
 	 width: 17rem;
-	 height: 6.2rem;
+	 height: 30rem;
 	 animation: 2s ease-in-out takeOff, 5s ease-in-out infinite alternate flight 2s;
 }
  .animation__plane--shadow {

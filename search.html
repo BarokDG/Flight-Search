@@ -128,23 +128,27 @@
     </div>
 
     <!-- HISTORY -->
-    <h3>History</h3>
-    <div class="list-group" id="history">
-      <table id="historyTable" class="table table-hover responsive nowrap" style="width:100%">
-        <thead>
-          <tr>
-            <th>Country</th>
-            <th>Currency</th>
-            <th>Origin</th>
-            <th>Destination</th>
-            <th>Outbound Date</th>
-            <th>Searched at Date</th>
-          </tr>
-        </thead>
-        <tbody id="loadDataHistory">
+    <div class="container">
+      <h3 class="">History</h3>
+      <div class="row">
+        <div class="col" id="history">
+          <table id="historyTable" class="table table-hover responsive nowrap" style="width:100%">
+            <thead>
+              <tr>
+                <th>Country</th>
+                <th>Currency</th>
+                <th>Origin</th>
+                <th>Destination</th>
+                <th>Outbound Date</th>
+                <th>Searched at Date</th>
+              </tr>
+            </thead>
+            <tbody id="loadDataHistory">
 
-        </tbody>
-      </table>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -189,7 +193,16 @@
           }
         ]
       });
+      
+      $(".dataTables_filter input")
+        .attr("placeholder", "Search here...")
+        .css({
+          width: "300px",
+          display: "inline-block"
+        });
 
+      $('[data-toggle="tooltip"]').tooltip();
+      
       $("#historyTable").DataTable({
         // "bFilter": false
         searching: false,
@@ -211,14 +224,6 @@
         ]
       });
 
-      $(".dataTables_filter input")
-        .attr("placeholder", "Search here...")
-        .css({
-          width: "300px",
-          display: "inline-block"
-        });
-
-      $('[data-toggle="tooltip"]').tooltip();
     });
     
 </script>
