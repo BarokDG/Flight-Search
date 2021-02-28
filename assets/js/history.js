@@ -58,6 +58,17 @@ function displayHistory() {
         i += 1
     }
 }
+
+historyList.addEventListener('click', enterIntoForm)
+function enterIntoForm(e){
+    let searchTD = e.target.parentElement
+    form.country.value = searchTD.children[0].textContent
+    form.currency.value = searchTD.children[1].textContent
+    form.origin.value = searchTD.children[2].textContent
+    form.destination.value = searchTD.children[3].textContent
+    form.obd.value = searchTD.children[4].textContent
+
+}
     
 // $('table').DataTable({
 // });

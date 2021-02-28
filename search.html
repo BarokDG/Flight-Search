@@ -7,6 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+  integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
   <link rel="stylesheet" href="assets/css/animation.css">
   <link rel="stylesheet" href="assets/css/history.css">
 
@@ -98,7 +101,8 @@
           <input type="text" name="obd" class="form-control" placeholder="OutboundDate">
         </div>
         <button type="button" class="btn btn-primary" id="searchBtn">Search</button>
-
+        <button type="reset" class="btn btn-danger mx-2 px-3 rounded-circle"><i class="fa fa-times" aria-hidden="true"></i></button>
+        
       </div>
     </form>
 
@@ -159,13 +163,17 @@
   <!-- API Fetcher -->
   <script src="./assets/js/apifetch.js"></script>
   <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/plug-ins/1.10.22/features/scrollResize/dataTables.scrollResize.min.js"></script>
 
   <script>
     $(document).ready(function () {
       $(".data-table").DataTable({
         // "bFilter": false
         searching: false,
+        // scrollResize: true,
         scrollX: true,
+        // scrollY: 100,
+        // scrollCollapse: true,
         deferLoading: 60,
 
         aaSorting: [],
