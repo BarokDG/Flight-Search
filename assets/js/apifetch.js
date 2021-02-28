@@ -1,73 +1,56 @@
-var form = document.getElementById('form')
-var result = document.getElementById('loadData')
-var search = document.querySelector("#searchBtn")
-// form.addEventListener('submit',getData)
-var jsonData
+$(document).ready(function () {
+    var myTable = $('#data-table').DataTable();
 
-async function loadData(country,currency,origin,destination,obd){
+    var form = document.getElementById('form')
+    var search = document.querySelector("#searchBtn")
 
-    let result =  await fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browseroutes/v1.0/${country}/${currency}/en-US/${origin}/${destination}/${obd}`, {
-        "method": "GET",
-        "headers": {
-            "content-type" : "application/json",
-            "x-rapidapi-key": "d064331107msh09cdb17875f4ce2p120f58jsnf9fbfec77964",
-            "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com"
-        }
-    })
+    search.addEventListener('click', displayData)
 
-    let data = await result.json()
-    return data
-}
+    async function loadData(country, currency, origin, destination, obd) {
 
-search.addEventListener("click",searchFlights )
-function searchFlights(){
-    var country = form.country.value
-    var currency = form.currency.value
-    var origin  = form.origin.value
-    var destination = form.destination.value
-    var obd = form.obd.value
-    
-    displayResults(country, currency, origin, destination, obd)
-    saveSearchRecord(country, currency, origin, destination, obd, Date())
-    
-}
+        let result = await fetch(`https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/${country}/${currency}/en-US/${origin}/${destination}/${obd}`, {
+                "method": "GET",
+                "headers": {
+                    "Accept": "application/json",
+                    "x-rapidapi-key": "11a08a8211msh8578bdf05a9ed95p11e117jsnd72bdf0d38fe",
+                    "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com"
+                }
+            }).then(response => response.json())
+            .then(response => {
+                console.log("Success");
+                return response
+            })
+            .catch(err => {
+                console.error(err);
+            });
 
-function displayResults(country, currency, origin, destination, obd){
-    loadData(country, currency, origin, destination, obd).then( function(flights) { 
-        jsonData = flights 
-        
-        // jsonData contains returned json data
-        let output = ''
-        let table = []
-        let carriers = {}
-        let rowCount = 0
-        for(let item in flights["Carriers"]){
-            carriers[(flights["Carriers"][item]["CarrierId"])] = (flights["Carriers"][item]["Name"])
-            // table[rowCount].push(flights["Quotes"][item]["MinPrice"])
-        }
-        
-        for(let item in flights["Quotes"]){
-            table.push([])
-            table[rowCount].push(flights["Quotes"][item]["OutboundLeg"]["CarrierIds"][0])
-            table[rowCount].push(flights["Quotes"][item]["MinPrice"])
-            table[rowCount].push(flights["Quotes"][item]["OutboundLeg"]["DepartureDate"])
-            rowCount += 1
-        }
+        return result
+    }
 
+    function displayData() {
+        // Input Variables
 
-        for(let item in table){
-            output += `
-                    <tr>
-                        <td>${carriers[table[item][0]]}</td>
-                        <td>${table[item][1]}${form.currency.value}</td>
-                        <td>${table[item][2]}</td>
-                        <td>---</td>
-                    </tr>
-                    `
-        }
-        result.innerHTML = output;
-    })
-    .catch(function(err) {
-        console.log(err);
-    });
-}
+        var country = form.country.value
+        var currency = form.currency.value
+        var origin = form.origin.value
+        var destination = form.destination.value
+        var obd = form.obd.value
+
+        loadData(country, currency, origin, destination, obd)
+            .then(result => {
+                var carrierList = {}
+                result.Carriers.forEach(item => {
+                    carrierList[item.CarrierId] = item.Name
+                })
+
+                result.Quotes.forEach((item, index) => {
+                    var identifier = result.Quotes[index]
+                    var id = identifier.OutboundLeg.CarrierIds
+
+                    var append = [carrierList[id], identifier.MinPrice, identifier.OutboundLeg.DepartureDate, "Woohoo it works"]
+
+                    myTable.row.add(append).draw()
+                })
+            })
+    }
+});
