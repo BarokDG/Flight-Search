@@ -28,13 +28,13 @@ function searchFlights(){
     var obd = form.obd.value
     
     displayResults(country, currency, origin, destination, obd)
+    saveSearchRecord(country, currency, origin, destination, obd, Date())
     
 }
 
 function displayResults(country, currency, origin, destination, obd){
     loadData(country, currency, origin, destination, obd).then( function(flights) { 
         jsonData = flights 
-        console.log(flights);
         
         // jsonData contains returned json data
         let output = ''
@@ -54,7 +54,6 @@ function displayResults(country, currency, origin, destination, obd){
             rowCount += 1
         }
 
-        console.log(table);
 
         for(let item in table){
             output += `

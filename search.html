@@ -102,11 +102,11 @@
       </div>
     </form>
 
-
+    <!-- RESULT DISPLAY -->
     <div class="container">
       <div class="row">
-        <div class="col-12">
-          <table id="example" class="table table-hover responsive nowrap" style="width:100%">
+        <div class="col">
+          <table id="example" class="table table-hover responsive nowrap data-table" style="width:100%">
             <thead>
               <tr>
                 <th>Carrier</th>
@@ -121,6 +121,26 @@
           </table>
         </div>
       </div>
+    </div>
+
+    <!-- HISTORY -->
+    <h3>History</h3>
+    <div class="list-group" id="history">
+      <table id="historyTable" class="table table-hover responsive nowrap" style="width:100%">
+        <thead>
+          <tr>
+            <th>Country</th>
+            <th>Currency</th>
+            <th>Origin</th>
+            <th>Destination</th>
+            <th>Outbound Date</th>
+            <th>Searched at Date</th>
+          </tr>
+        </thead>
+        <tbody id="loadDataHistory">
+
+        </tbody>
+      </table>
     </div>
   </div>
 
@@ -142,9 +162,32 @@
 
   <script>
     $(document).ready(function () {
-      $("#example").DataTable({
+      $(".data-table").DataTable({
         // "bFilter": false
         searching: false,
+        scrollX: true,
+        deferLoading: 60,
+
+        aaSorting: [],
+        responsive: true,
+
+        columnDefs: [{
+            responsivePriority: 1,
+            targets: 0
+          },
+          {
+            responsivePriority: 2,
+            targets: -1
+          }
+        ]
+      });
+
+      $("#historyTable").DataTable({
+        // "bFilter": false
+        searching: false,
+        scrollX: true,
+        data: searchHistoryList.reverse(),
+
 
         aaSorting: [],
         responsive: true,
@@ -169,7 +212,8 @@
 
       $('[data-toggle="tooltip"]').tooltip();
     });
-  </script>
+    
+</script>
 
 </body>
 
