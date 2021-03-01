@@ -8,6 +8,8 @@ const obd = form.obd.value
 
 const btn = document.querySelector('button')
 const historyList = document.querySelector('#loadDataHistory')
+var search = document.querySelector("#searchBtn")
+
 
 onload = displayHistory()
 

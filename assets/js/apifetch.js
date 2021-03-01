@@ -35,6 +35,7 @@ $(document).ready(function () {
         var origin = form.origin.value
         var destination = form.destination.value
         var obd = form.obd.value
+        var searchDate = Date()
 
         loadData(country, currency, origin, destination, obd)
             .then(result => {
@@ -51,6 +52,7 @@ $(document).ready(function () {
 
                     myTable.row.add(append).draw()
                 })
+                saveSearchRecord(country, currency, origin, destination, obd, searchDate)
             })
-    }
-});
+        }
+    });
