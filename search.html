@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
-  <link rel="stylesheet" href="assets/css/history.css">
+  <link rel="stylesheet" href="assets/css/search.css">
 
   <title>Search</title>
 </head>
@@ -88,21 +88,21 @@
 
 
     <!-- Search Form-->
-    <form id="form" class="w-75 mx-auto">
+    <form id="form" class="w-75 mx-auto" autocomplete="off">
       <div class="row m-3 g-2">
-        <div class="col form-floating">
+        <div class="col form-floating autocomplete">
           <input type="text" name="country" class="form-control" id="country" placeholder="Country">
           <label for="country">Country</label>
         </div>
-        <div class="col form-floating">
+        <div class="col form-floating autocomplete">
           <input type="text" name="currency" class="form-control" id="currency" placeholder="Currency">
           <label for="currency">Currency</label>
         </div>
-        <div class="col form-floating">
+        <div class="col form-floating autocomplete">
           <input type="text" name="origin" class="form-control" id="origin" placeholder="Origin">
           <label for="origin">Origin</label>
         </div>
-        <div class="col form-floating">
+        <div class="col form-floating autocomplete">
           <input type="text" name="destination" class="form-control" id="destination" placeholder="Destination">
           <label for="destination">Destination</label>
         </div>
@@ -197,7 +197,6 @@
         scrollX: true,
         data: searchHistoryList.reverse(),
 
-
         aaSorting: [],
         responsive: true,
 
@@ -214,6 +213,7 @@
 
     });
   </script>
+  <script src="./assets/js/places.js"></script>
 
 </body>
 

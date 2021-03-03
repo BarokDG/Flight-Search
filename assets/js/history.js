@@ -10,9 +10,6 @@ const btn = document.querySelector('button')
 const historyList = document.querySelector('#loadDataHistory')
 var search = document.querySelector("#searchBtn")
 
-
-onload = displayHistory()
-
 function saveSearchRecord(searchCountry, searchCurrency, searchOrigin, searchDestination, searchObd, searchDate) {
     let shJSON
     if (localStorage.getItem('searchHistory') == null)
@@ -22,8 +19,8 @@ function saveSearchRecord(searchCountry, searchCurrency, searchOrigin, searchDes
         return
     
         shJSON = localStorage.getItem('searchHistory')
+    
     let searchHistory = JSON.parse(shJSON)
-
 
     searchHistory[searchDate] = {
         searchCountry : searchCountry,
@@ -35,10 +32,13 @@ function saveSearchRecord(searchCountry, searchCurrency, searchOrigin, searchDes
     
     shJSON = JSON.stringify(searchHistory)
     localStorage.setItem('searchHistory', shJSON)
-    displayHistory()
+
+    // displayHistory()
 }
 
 function displayHistory() {
+    console.log("here")
+
     if (localStorage.getItem('searchHistory') == null)
         localStorage.setItem('searchHistory', "{}")
 
@@ -62,17 +62,22 @@ function displayHistory() {
 }
 
 historyList.addEventListener('click', enterIntoForm)
+
 function enterIntoForm(e){
     let searchTD = e.target.parentElement
+
     form.country.value = searchTD.children[0].textContent
     form.currency.value = searchTD.children[1].textContent
     form.origin.value = searchTD.children[2].textContent
     form.destination.value = searchTD.children[3].textContent
     form.obd.value = searchTD.children[4].textContent
+
     form.scrollIntoView()
     form.focus()
     search.focus()
 }
-    
+
+setInterval(displayHistory()
+, 100)
 // $('table').DataTable({
 // });

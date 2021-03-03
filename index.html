@@ -104,7 +104,7 @@
         <div class="col-md-4 mx-auto">
             <h4>Links</h4>
             <ul>
-                <li>Flights</li>
+                <li><a href="search.html">Flights</a></li>
                 <li>Hotels</li>
             </ul>
         </div>
@@ -138,7 +138,7 @@
             setTimeout(function () {
                 document.querySelector("span.d-inline").innerHTML = bannerText[i];
                 Sequence(++i);
-            }, 1500); // 1 second (in milliseconds)
+            }, 1500);
 
         } else if (bannerText.length == i) {
             Sequence(0);
@@ -146,6 +146,20 @@
 
     }
     Sequence(0);
+
+    // Skip to search page for displays less than 1024px.
+    function changeButton() {
+        if (screen.width <= 1024) {
+            document.querySelector(".arrow a").href = "./search.html";
+        } else {
+            document.querySelector(".arrow a").href = "./navigation.html";
+        }
+        setTimeout(() => {
+            changeButton();
+        }, 1000);
+    }
+
+    changeButton()
 </script>
 
 </html>

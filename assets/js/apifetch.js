@@ -48,11 +48,11 @@ $(document).ready(function () {
                     var identifier = result.Quotes[index]
                     var id = identifier.OutboundLeg.CarrierIds
 
-                    var append = [carrierList[id], identifier.MinPrice, identifier.OutboundLeg.DepartureDate, "Woohoo it works"]
+                    var append = [carrierList[id], `${identifier.MinPrice} ${currency}`, identifier.OutboundLeg.DepartureDate, "Woohoo it works"]
 
                     myTable.row.add(append).draw()
                 })
                 saveSearchRecord(country, currency, origin, destination, obd, searchDate)
             })
         }
-    });
+});
