@@ -1,4 +1,4 @@
-.autocomplete {
+body .autocomplete {
     position: relative;
     display: inline-block;
 }
@@ -31,4 +31,23 @@
 .autocomplete-active {
     background-color: DodgerBlue !important;
     color: #ffffff;
+}
+
+#loadDataHistory td {
+    cursor: pointer;
+}
+
+/* Test Layout */
+.row {
+    max-width: 99vw !important;
+}
+
+#fixed-side {
+    position: fixed;
+    top: 0;
+}
+
+#right {
+    position: absolute;
+    right: 0;
 }
