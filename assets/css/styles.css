@@ -106,7 +106,7 @@ header h1 span {
 }
 
 #hotels {
-    background-color: cornflowerblue;
+    background-color:#899bbd;
     color: white;
 }
 
@@ -119,8 +119,8 @@ header h1 span {
 
 /* Footer Section */
 footer {
-    background-color: #335AA1;
-    color: white;
+    background-color: #899bbd;
+    color: rgb(0, 0, 0);
     padding: 3%;
     padding-left: 7%;
     text-align: justify;
