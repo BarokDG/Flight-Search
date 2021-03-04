@@ -103,20 +103,12 @@ header h1 span {
 }
 
 
-#f a{
-    
-    text-decoration: none;
-}
-
-
-#f :hover {
-    background-color:white
-    
+#flights{
 
 }
 
 #hotels {
-    background-color:#899bbd;
+    background-color:cornflowerblue;
     color: white;
 }
 
@@ -129,8 +121,8 @@ header h1 span {
 
 /* Footer Section */
 footer {
-    background-color: #899bbd;
-    color: rgb(0, 0, 0);
+    background-color:#335AA1;
+    color: white;
     padding: 3%;
     padding-left: 7%;
     text-align: justify;
@@ -215,7 +207,7 @@ footer p.mutedText {
 }
 
 a, a.stretched-link, a.stretched-link:hover, a.stretched-link:active {
-    color:black !important;
+    color:white !important;
 }
 
 .overlay{
