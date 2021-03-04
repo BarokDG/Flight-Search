@@ -104,14 +104,14 @@ header h1 span {
 
 
 #f a{
-    color: black;
+    
     text-decoration: none;
 }
 
 
 #f :hover {
-    background-color:black;
-    color: wheat;
+    background-color:white
+    
 
 }
 
@@ -215,7 +215,7 @@ footer p.mutedText {
 }
 
 a, a.stretched-link, a.stretched-link:hover, a.stretched-link:active {
-    color: white !important;
+    color:black !important;
 }
 
 .overlay{
