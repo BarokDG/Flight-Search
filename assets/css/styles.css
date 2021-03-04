@@ -102,7 +102,17 @@ header h1 span {
     text-align: justify;
 }
 
-#flights {
+
+#f a{
+    color: black;
+    text-decoration: none;
+}
+
+
+#f :hover {
+    background-color:black;
+    color: wheat;
+
 }
 
 #hotels {
@@ -129,6 +139,7 @@ footer {
 footer p,li{
     font-size: 1rem !important;
     font-weight: lighter;
+
 }
 
 footer ul {
