@@ -32,7 +32,7 @@
   </div>
 
   <div class="row">
-    <div class="col-md-4" id="fixed-side">
+    <div class="col-lg-4" id="fixed-side">
         <div class="animation">
             <svg id="master-artboard" class="animation__cloud--back" viewBox="0 0 45 18" version="1.1"
                 xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="45px" height="18px">
@@ -95,38 +95,38 @@
         </div>
     </div>
 
-    <div class="col-md-8" id="right">
+    <div class="col-lg-8" id="right">
         <form id="form" class="mx-auto" autocomplete="off">
-            <div class="row m-3 g-2">
-                <div class="col form-floating autocomplete">
+            <div class="row mt-3 mx-3 g-2">
+                <div class="col-sm-4 form-floating autocomplete">
                     <input type="text" name="country" class="form-control" id="country" placeholder="Country">
                     <label for="country">Country</label>
                 </div>
-                <div class="col form-floating autocomplete">
+                <div class="col-sm-4 form-floating autocomplete">
                     <input type="text" name="currency" class="form-control" id="currency" placeholder="Currency">
                     <label for="currency">Currency</label>
                 </div>
-                <div class="col form-floating autocomplete">
+                <div class="col-sm-4 form-floating autocomplete">
                     <input type="text" name="origin" class="form-control" id="origin" placeholder="Origin">
                     <label for="origin">Origin</label>
                 </div>
-                <div class="row">
-                    <div class="col form-floating autocomplete">
-                        <input type="text" name="destination" class="form-control" id="destination"
-                            placeholder="Destination">
-                        <label for="destination">Destination</label>
-                    </div>
-                    <div class="col form-floating">
-                        <input type="date" name="obd" class="form-control" id="OutboundDate"
-                            placeholder="OutboundDate">
-                        <label for="OutboundDate">Out-bound Date</label>
-                    </div>
-                    <div class="col">
-                        <button type="button" class="btn btn-primary p-3" id="searchBtn">Search</button>
-                        <button type="reset" class="btn btn-danger p-3">Clear</button>
-                    </div>
-                </div>
             </div>
+            <div class="row mt-1 mb-5 mx-3 g-2">
+              <div class="col-sm-4 form-floating autocomplete">
+                  <input type="text" name="destination" class="form-control" id="destination"
+                      placeholder="Destination">
+                  <label for="destination">Destination</label>
+              </div>
+              <div class="col-sm-4 form-floating">
+                  <input type="date" name="obd" class="form-control" id="OutboundDate"
+                      placeholder="OutboundDate">
+                  <label for="OutboundDate">Out-bound Date</label>
+              </div>
+              <div class="col-sm-4">
+                  <button type="button" class="btn btn-primary p-3" id="searchBtn">Search</button>
+                  <button type="reset" class="btn btn-danger p-3">Clear</button>
+              </div>
+          </div>
         </form>
 
         <!-- RESULT DISPLAY -->
@@ -155,7 +155,7 @@
             <h3 class="">History</h3>
             <div class="row">
                 <div class="col" id="history">
-                    <table id="historyTable" class="table table-hover responsive nowrap" style="width:100%">
+                    <table id="historyTable" class="table table-hover" style="width:100%">
                         <thead>
                             <tr>
                                 <th>Country</th>

@@ -1,7 +1,3 @@
-body {
-    overflow: hidden;
-}
-
 body .autocomplete {
     position: relative;
     display: inline-block;
@@ -72,4 +68,10 @@ body .autocomplete {
     margin: auto;
     width: 4rem;
     height: 4rem;
+}
+
+@media screen and (max-width: 1000px){
+    #fixed-side {
+        display: none;
+    }
 }
