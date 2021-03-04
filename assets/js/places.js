@@ -1,51 +1,52 @@
 const searchCountry = document.querySelector('#country')
-const spinner = document.querySelector('#spinner')
 // const searchCurrency = document.querySelector("#currency")
 // const searchOrigin = document.querySelector("#origin")
 // const searchDestination = document.querySelector("#destination")
 
-searchCountry.addEventListener('keydown', () => autocomplete(searchCountry, country_names))
+// searchCountry.addEventListener('keyup', () => startAutoComplete(searchCountry))
 
 var countries_dict = {}
 var cities = {}
 const country_names = []
 
 function loadData() {
-    return new Promise((res, rej) => {
-        const xhr = new XMLHttpRequest();
+    const xhr = new XMLHttpRequest();
 
-        xhr.open('GET', '/assets/jsonData/places.json')
-    
-        xhr.onload = function () {
-            if (this.status === 200) {
-                const places = JSON.parse(this.responseText);
-                // console.log(places)
-                places.Continents.forEach((continent) => {
-                    continent.Countries.forEach(country => {
-                        countries_dict[country.Name] = country.Id
-                        country_names.push(country.Name)
-                    });
+    xhr.open('GET', '/assets/jsonData/places.json')
+
+    xhr.onload = function () {
+        if (this.status === 200) {
+            const places = JSON.parse(this.responseText);
+            // console.log(places)
+
+            places.Continents.forEach((continent) => {
+                continent.Countries.forEach(country => {
+                    countries_dict[country.Name] = country.Id
+                    country_names = countries_dict.map(key => key)
                 });
-                res(
-                    console.log("Success")
-                )
-            }
+                // console.log(country_names)
+            });
+            console.log(typeof country_names)
         }
-    
-        xhr.send()
-    })
+    }
+
+    // console.log(country_names)
+
+    xhr.send()
 }
 
 function autocomplete(inp, arr) {
+    console.log("here")
     /*the autocomplete function takes two arguments,
     the text field element and an array of possible autocompleted values:*/
-    console.log(arr)
+
     var currentFocus;
 
     /*execute a function when someone writes in the text field:*/
 
     inp.addEventListener("input", function (e) {
         var a, b, i, val = this.value;
+        console.log("also here")
         /*close any already open lists of autocompleted values*/
 
         closeAllLists();
@@ -96,6 +97,7 @@ function autocomplete(inp, arr) {
     /*execute a function presses a key on the keyboard:*/
 
     inp.addEventListener("keydown", function (e) {
+        console.log("here as well")
         var x = document.getElementById(this.id + "autocomplete-list");
         if (x) x = x.getElementsByTagName("div");
         if (e.keyCode == 40) {
@@ -166,7 +168,6 @@ function autocomplete(inp, arr) {
     });
 }
 
-loadData().then(() => {
-    console.log("here loaded")
-    spinner.style.display = "none";
-})
+loadData()
+console.log(country_names)
+// autocomplete(searchCountry, country_names)
