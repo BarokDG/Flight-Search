@@ -1,37 +1,56 @@
 const searchCountry = document.querySelector('#country')
+const searchCurrency = document.querySelector("#currency")
+const searchOrigin = document.querySelector("#origin")
+const searchDestination = document.querySelector("#destination")
+
 const spinner = document.querySelector('#spinner')
-// const searchCurrency = document.querySelector("#currency")
-// const searchOrigin = document.querySelector("#origin")
-// const searchDestination = document.querySelector("#destination")
 
 searchCountry.addEventListener('keydown', () => autocomplete(searchCountry, country_names))
+searchCurrency.addEventListener('keydown', () => autocomplete(searchCurrency, unique_currencies))
+searchOrigin.addEventListener('keydown', () => autocomplete(searchOrigin, cities))
+searchDestination.addEventListener('keydown', () => autocomplete(searchDestination, cities))
 
 var countries_dict = {}
-var cities = {}
+var cities_dict = []
+
+var cities = []
+
 const country_names = []
+const currencies = []
+
+var unique_currencies = []
 
 function loadData() {
     return new Promise((res, rej) => {
         const xhr = new XMLHttpRequest();
 
         xhr.open('GET', '/assets/jsonData/places.json')
-    
+
         xhr.onload = function () {
             if (this.status === 200) {
                 const places = JSON.parse(this.responseText);
-                // console.log(places)
                 places.Continents.forEach((continent) => {
                     continent.Countries.forEach(country => {
                         countries_dict[country.Name] = country.Id
+
                         country_names.push(country.Name)
+                        currencies.push(country.CurrencyId)
+
+                        country.Cities.forEach(city => {
+                            cities_dict[city.Name] = city.Id
+
+                            cities.push(city.Name)
+                        })
                     });
                 });
+                unique_currencies = [...new Set(currencies)]
+
                 res(
                     console.log("Success")
                 )
             }
         }
-    
+
         xhr.send()
     })
 }
@@ -39,7 +58,6 @@ function loadData() {
 function autocomplete(inp, arr) {
     /*the autocomplete function takes two arguments,
     the text field element and an array of possible autocompleted values:*/
-    console.log(arr)
     var currentFocus;
 
     /*execute a function when someone writes in the text field:*/
@@ -76,7 +94,14 @@ function autocomplete(inp, arr) {
                 b.innerHTML += arr[i].substr(val.length);
                 /*insert a input field that will hold the current array item's value:*/
 
-                b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+                if (inp == searchCountry || inp == searchCurrency){
+                    b.innerHTML += "<input type='hidden' value='" + (countries_dict[arr[i]] ? countries_dict[arr[i]] : arr[i]) + "'>";
+                }
+                else {
+                    let city = cities_dict[arr[i]]
+                    b.innerHTML += "<input type='hidden' value='" + city.slice(0, (city.length - 1)) + "'>";
+                }
+
                 /*execute a function when someone clicks on the item value (DIV element):*/
 
                 b.addEventListener("click", function (e) {
@@ -89,7 +114,6 @@ function autocomplete(inp, arr) {
                     closeAllLists();
                 });
                 a.appendChild(b);
-                console.log(a)
             }
         }
     });
@@ -167,6 +191,5 @@ function autocomplete(inp, arr) {
 }
 
 loadData().then(() => {
-    console.log("here loaded")
     spinner.style.display = "none";
 })
